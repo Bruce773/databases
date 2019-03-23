@@ -29,15 +29,20 @@ CREATE TABLE rooms (
  */
 
 CREATE TABLE rooms_to_users (
-  /* Describe your table here.*/
   room INT NOT NULL,
   user INT NOT NULL,
   FOREIGN KEY (room) REFERENCES rooms(id),
   FOREIGN KEY (user) REFERENCES users(id)
 );
 
+CREATE TABLE messages_to_rooms (
+  message INT NOT NULL,
+  room INT NOT NULL,
+  FOREIGN KEY (message) REFERENCES messages(id),
+  FOREIGN KEY (room) REFERENCES rooms(id)
+);
+
 CREATE TABLE messages_to_users (
-  /* Describe your table here.*/
   message INT NOT NULL,
   user INT NOT NULL,
   FOREIGN KEY (message) REFERENCES messages(id),
